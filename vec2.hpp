@@ -5,84 +5,94 @@
 # include "./type/vec2.hpp"
 # include "./type/mat2.hpp"
 
-/* Operator - overloading */
-
-inline vec2 operator + (vec2, vec2);
-
-inline vec2 operator - (vec2, vec2);
-
-inline vec2 operator * (vec2, vec2);
-
-inline vec2 operator / (vec2, vec2);
-
-inline vec2 operator % (vec2, vec2);
-
-inline vec2 operator + (vec2, float);
-
-inline vec2 operator - (vec2, float);
-
-inline vec2 operator * (vec2, float);
-
-inline vec2 operator / (vec2, float);
-
-inline vec2 operator % (vec2, float);
-
-inline vec2 operator * (vec2, mat2);
-
-inline bool operator == (vec2, vec2);
-
-inline bool operator != (vec2, vec2);
-
-inline bool operator > (vec2, vec2);
-
-inline bool operator >= (vec2, vec2);
-
-inline bool operator < (vec2, vec2);
-
-inline bool operator <= (vec2, vec2);
-
-inline vec2 &operator += (vec2 &, vec2);
-
-inline vec2 &operator -= (vec2 &, vec2);
-
-inline vec2 &operator *= (vec2 &, vec2);
-
-inline vec2 &operator /= (vec2 &, vec2);
-
-inline vec2 &operator %= (vec2 &, vec2);
-
-inline vec2 &operator += (vec2 &, float);
-
-inline vec2 &operator -= (vec2 &, float);
-
-inline vec2 &operator *= (vec2 &, float);
-
-inline vec2 &operator /= (vec2 &, float);
-
-inline vec2 &operator %= (vec2 &, float);
-
 namespace alg {
+
+    /* Math operations */
+
+    inline vec2 operator + (vec2, vec2);
+
+    inline vec2 operator - (vec2, vec2);
+
+    inline vec2 operator * (vec2, vec2);
+
+    inline vec2 operator / (vec2, vec2);
+
+    inline vec2 operator % (vec2, vec2);
+
+    inline vec2 operator + (vec2, float);
+
+    inline vec2 operator - (vec2, float);
+
+    inline vec2 operator * (vec2, float);
+
+    inline vec2 operator / (vec2, float);
+
+    inline vec2 operator % (vec2, float);
+
+    inline vec2 operator * (vec2, mat2);
+
+    /* Boolean expressions */
+
+    inline bool operator == (vec2, vec2);
+
+    inline bool operator != (vec2, vec2);
+
+    inline bool operator > (vec2, vec2);
+
+    inline bool operator >= (vec2, vec2);
+
+    inline bool operator < (vec2, vec2);
+
+    inline bool operator <= (vec2, vec2);
+    
+    /* Math operations */
+
+    inline vec2 &operator += (vec2 &, vec2);
+
+    inline vec2 &operator -= (vec2 &, vec2);
+
+    inline vec2 &operator *= (vec2 &, vec2);
+
+    inline vec2 &operator /= (vec2 &, vec2);
+
+    inline vec2 &operator %= (vec2 &, vec2);
+
+    inline vec2 &operator += (vec2 &, float);
+
+    inline vec2 &operator -= (vec2 &, float);
+
+    inline vec2 &operator *= (vec2 &, float);
+
+    inline vec2 &operator /= (vec2 &, float);
+
+    inline vec2 &operator %= (vec2 &, float);
+
+    /* Properties */
 
     template <>
 	vec2 init<vec2>(float);
 
     template <>
 	vec2 init<vec2>(float, float);
+    
+    /* Distance Operations */
 
     template <>
-	float len<vec2>(vec2);
+	float ln<vec2>(vec2);
 
     template <>
-	float lensq<vec2>(vec2);
+	float lnsq<vec2>(vec2);
 
     template <>
-	float dist<vec2>(vec2, vec2);
+	float dst<vec2>(vec2, vec2);
 
     template <>
-	float distsq<vec2>(vec2, vec2);
+	float dstsq<vec2>(vec2, vec2);
 
     template <>
 	float dot<vec2>(vec2, vec2);
+
+    /* Unary Arithmetics */
 
     template <>
 	float cross(vec2, vec2);
@@ -117,6 +127,8 @@ namespace alg {
     template <>
 	vec2 round<vec2>(vec2);
 
+    /* Constraints */
+
     template <>
 	vec2 min<vec2>(vec2, vec2);
 
@@ -135,6 +147,8 @@ namespace alg {
     template <>
 	vec2 clampf<vec2>(vec2, float, float);
 
+    /* Interpolation */
+
     template <>
 	vec2 lerp<vec2>(vec2, vec2, float);
 
@@ -143,6 +157,8 @@ namespace alg {
 
     template <>
 	vec2 smoothstep<vec2>(vec2, vec2, vec2);
+
+    /* Geometric operations */
 
     template <>
 	vec2 perp<vec2>(vec2);
@@ -161,211 +177,206 @@ namespace alg {
 
 };
 
-# if defined (ALGEBRA_IMPLEMENTATION)
+#endif /* _vec2_hpp_ */
 #
-#  include "./utils.hpp"
+#if defined (ALGEBRA_IMPLEMENTATION)
 #
-#  include <cmath>
-
-inline vec2 operator + (vec2 a, vec2 b) {
-    vec2 v;
-
-    v.x = a.x + b.x;
-    v.y = a.y + b.y;
-    return (v);
-}
-
-
-inline vec2 operator - (vec2 a, vec2 b) {
-    vec2 v;
-
-    v.x = a.x - b.x;
-    v.y = a.y - b.y;
-    return (v);
-}
-
-
-inline vec2 operator * (vec2 a, vec2 b) {
-    vec2 v;
-
-    v.x = a.x * b.x;
-    v.y = a.y * b.y;
-    return (v);
-}
-
-
-inline vec2 operator / (vec2 a, vec2 b) {
-    vec2 v;
-
-    v.x = b.x != 0.0f ? a.x / b.x : 0.0f;
-    v.y = b.y != 0.0f ? a.y / b.y : 0.0f;
-    return (v);
-}
-
-
-inline vec2 operator % (vec2 a, vec2 b) {
-    vec2 v;
-
-    v.x = a.x - b.x * floorf(a.x / b.x);
-    v.y = a.y - b.y * floorf(a.y / b.y);
-    return (v);
-}
-
-
-inline vec2 operator + (vec2 a, float f) {
-    vec2 v;
-
-    v.x = a.x + f;
-    v.y = a.y + f;
-    return (v);
-}
-
-
-inline vec2 operator - (vec2 a, float f) {
-    vec2 v;
-
-    v.x = a.x - f;
-    v.y = a.y - f;
-    return (v);
-}
-
-
-inline vec2 operator * (vec2 a, float f) {
-    vec2 v;
-
-    v.x = a.x * f;
-    v.y = a.y * f;
-    return (v);
-}
-
-
-inline vec2 operator / (vec2 a, float f) {
-    vec2 v;
-
-    v.x = f != 0.0f ? a.x / f : 0.0f;
-    v.y = f != 0.0f ? a.y / f : 0.0f;
-    return (v);
-}
-
-
-inline vec2 operator % (vec2 a, float f) {
-    vec2 v;
-
-    v.x = a.x - f * floorf(a.x / f);
-    v.y = a.y - f * floorf(a.y / f);
-    return (v);
-}
-
-
-inline vec2 operator * (vec2 a, mat2 m) {
-    vec2 v;
-
-    v.x = m.m00 * a.x + m.m10 * a.y;
-    v.y = m.m01 * a.x + m.m11 * a.y;
-    return (v);
-}
-
-
-inline bool operator == (vec2 a, vec2 b) {
-    return (fabsf(a.x - b.x) < 1e-6f &&
-            fabsf(a.y - b.y) < 1e-6f);
-}
-
-
-inline bool operator != (vec2 a, vec2 b) {
-    return (!(a == b));
-}
-
-
-inline bool operator > (vec2 a, vec2 b) {
-    return (a.x > b.x ||
-            a.y > b.y);
-}
-
-
-inline bool operator >= (vec2 a, vec2 b) {
-    return (a.x >= b.x ||
-            a.y >= b.y);
-}
-
-
-inline bool operator < (vec2 a, vec2 b) {
-    return (a.x < b.x ||
-            a.y < b.y);
-}
-
-
-inline bool operator <= (vec2 a, vec2 b) {
-    return (a.x <= b.x ||
-            a.y <= b.y);
-}
-
-
-inline vec2 &operator += (vec2 &a, vec2 b) {
-    a = a + b;
-    return (a);
-}
-
-
-inline vec2 &operator -= (vec2 &a, vec2 b) {
-    a = a - b;
-    return (a);
-}
-
-
-inline vec2 &operator *= (vec2 &a, vec2 b) {
-    a = a * b;
-    return (a);
-}
-
-
-inline vec2 &operator /= (vec2 &a, vec2 b) {
-    a = a / b;
-    return (a);
-}
-
-
-inline vec2 &operator %= (vec2 &a, vec2 b) {
-    a = a % b;
-    return (a);
-}
-
-
-inline vec2 &operator += (vec2 &a, float f) {
-    a = a + f;
-    return (a);
-}
-
-
-inline vec2 &operator -= (vec2 &a, float f) {
-    a = a - f;
-    return (a);
-}
-
-
-inline vec2 &operator *= (vec2 &a, float f) {
-    a = a * f;
-    return (a);
-}
-
-
-inline vec2 &operator /= (vec2 &a, float f) {
-    a = a / f;
-    return (a);
-}
-
-
-inline vec2 &operator %= (vec2 &a, float f) {
-    a = a % f;
-    return (a);
-}
+# include <cmath>
+# include "./utils.hpp"
 
 namespace alg {
 
+    /* Math operations */
+
+    inline vec2 operator + (vec2 a, vec2 b) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = a.x + b.x;
+        v.y = a.y + b.y;
+        return (v);
+    }
+
+
+    inline vec2 operator - (vec2 a, vec2 b) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = a.x - b.x;
+        v.y = a.y - b.y;
+        return (v);
+    }
+
+
+    inline vec2 operator * (vec2 a, vec2 b) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = a.x * b.x;
+        v.y = a.y * b.y;
+        return (v);
+    }
+
+
+    inline vec2 operator / (vec2 a, vec2 b) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = b.x != 0.0f ? a.x / b.x : 0.0f;
+        v.y = b.y != 0.0f ? a.y / b.y : 0.0f;
+        return (v);
+    }
+
+
+    inline vec2 operator % (vec2 a, vec2 b) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = a.x - b.x * floorf(a.x / b.x);
+        v.y = a.y - b.y * floorf(a.y / b.y);
+        return (v);
+    }
+
+
+    inline vec2 operator + (vec2 a, float f) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = a.x + f;
+        v.y = a.y + f;
+        return (v);
+    }
+
+
+    inline vec2 operator - (vec2 a, float f) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = a.x - f;
+        v.y = a.y - f;
+        return (v);
+    }
+
+
+    inline vec2 operator * (vec2 a, float f) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = a.x * f;
+        v.y = a.y * f;
+        return (v);
+    }
+
+
+    inline vec2 operator / (vec2 a, float f) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = f != 0.0f ? a.x / f : 0.0f;
+        v.y = f != 0.0f ? a.y / f : 0.0f;
+        return (v);
+    }
+
+
+    inline vec2 operator % (vec2 a, float f) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = a.x - f * floorf(a.x / f);
+        v.y = a.y - f * floorf(a.y / f);
+        return (v);
+    }
+
+
+    inline vec2 operator * (vec2 a, mat2 m) {
+        vec2 v = alg::init<vec2>(0.0);
+        v.x = m.m00 * a.x + m.m10 * a.y;
+        v.y = m.m01 * a.x + m.m11 * a.y;
+        return (v);
+    }
+
+    /* Boolean expressions */
+
+    inline bool operator == (vec2 a, vec2 b) {
+        return (fabsf(a.x - b.x) < 1e-6f &&
+                fabsf(a.y - b.y) < 1e-6f);
+    }
+
+
+    inline bool operator != (vec2 a, vec2 b) {
+        return (!(a == b));
+    }
+
+
+    inline bool operator > (vec2 a, vec2 b) {
+        return (a.x > b.x ||
+                a.y > b.y);
+    }
+
+
+    inline bool operator >= (vec2 a, vec2 b) {
+        return (a.x >= b.x ||
+                a.y >= b.y);
+    }
+
+
+    inline bool operator < (vec2 a, vec2 b) {
+        return (a.x < b.x ||
+                a.y < b.y);
+    }
+
+
+    inline bool operator <= (vec2 a, vec2 b) {
+        return (a.x <= b.x ||
+                a.y <= b.y);
+    }
+
+    /* Math operations */
+
+    inline vec2 &operator += (vec2 &a, vec2 b) {
+        a = a + b;
+        return (a);
+    }
+
+
+    inline vec2 &operator -= (vec2 &a, vec2 b) {
+        a = a - b;
+        return (a);
+    }
+
+
+    inline vec2 &operator *= (vec2 &a, vec2 b) {
+        a = a * b;
+        return (a);
+    }
+
+
+    inline vec2 &operator /= (vec2 &a, vec2 b) {
+        a = a / b;
+        return (a);
+    }
+
+
+    inline vec2 &operator %= (vec2 &a, vec2 b) {
+        a = a % b;
+        return (a);
+    }
+
+
+    inline vec2 &operator += (vec2 &a, float f) {
+        a = a + f;
+        return (a);
+    }
+
+
+    inline vec2 &operator -= (vec2 &a, float f) {
+        a = a - f;
+        return (a);
+    }
+
+
+    inline vec2 &operator *= (vec2 &a, float f) {
+        a = a * f;
+        return (a);
+    }
+
+
+    inline vec2 &operator /= (vec2 &a, float f) {
+        a = a / f;
+        return (a);
+    }
+
+
+    inline vec2 &operator %= (vec2 &a, float f) {
+        a = a % f;
+        return (a);
+    }
+
+    /* Properties */
+
     template <>
 	vec2 init<vec2>(float x) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = x;
         v.y = 0.0f;
         return (v);
@@ -374,39 +385,40 @@ namespace alg {
 
     template <>
 	vec2 init<vec2>(float x, float y) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = x;
         v.y = y;
         return (v);
 	}
 
+    /* Distance Operations */
 
     template <>
-	float len<vec2>(vec2 a) {
+	float ln<vec2>(vec2 a) {
         return (sqrtf(a.x * a.x + a.y * a.y));
 	}
 
 
     template <>
-	float lensq<vec2>(vec2 a) {
+	float lnsq<vec2>(vec2 a) {
         return (a.x * a.x + a.y * a.y);
 	}
 
 
     template <>
-	float dist<vec2>(vec2 a, vec2 b) {
+	float dst<vec2>(vec2 a, vec2 b) {
         return (sqrtf((a.x - b.x) * (a.x - b.x) +
                       (a.y - b.y) * (a.y - b.y)));
 	}
 
 
     template <>
-	float distsq<vec2>(vec2 a, vec2 b) {
+	float dstsq<vec2>(vec2 a, vec2 b) {
         return ((a.x - b.x) * (a.x - b.x) +
                 (a.y - b.y) * (a.y - b.y));
 	}
 
+    /* Unary Arithmetics */
 
     template <>
 	float dot<vec2>(vec2 a, vec2 b) {
@@ -422,11 +434,10 @@ namespace alg {
 
     template <>
 	vec2 norm<vec2>(vec2 a) {
-        float len = alg::len<vec2>(a);
-
-        if (len != 0.0f) {
-            a.x *= 1.0f / len;
-            a.y *= 1.0f / len;
+        float ln = alg::ln<vec2>(a);
+        if (ln != 0.0f) {
+            a.x *= 1.0f / ln;
+            a.y *= 1.0f / ln;
         }
         return (a);
 	}
@@ -503,11 +514,11 @@ namespace alg {
         return (a);
 	}
 
+    /* Constraints */
 
     template <>
 	vec2 min<vec2>(vec2 a, vec2 b) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = alg_min(a.x, b.x);
         v.y = alg_min(a.y, b.y);
         return (v);
@@ -516,8 +527,7 @@ namespace alg {
 
     template <>
 	vec2 minf<vec2>(vec2 a, float f) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = alg_min(a.x, f);
         v.y = alg_min(a.y, f);
         return (v);
@@ -526,8 +536,7 @@ namespace alg {
 
     template <>
 	vec2 max<vec2>(vec2 a, vec2 b) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = alg_max(a.x, b.x);
         v.y = alg_max(a.y, b.y);
         return (v);
@@ -536,8 +545,7 @@ namespace alg {
 
     template <>
 	vec2 maxf<vec2>(vec2 a, float f) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = alg_max(a.x, f);
         v.y = alg_max(a.y, f);
         return (v);
@@ -546,8 +554,7 @@ namespace alg {
 
     template <>
 	vec2 clamp<vec2>(vec2 a, vec2 lo, vec2 hi) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = alg_clamp(a.x, lo.x, hi.x);
         v.y = alg_clamp(a.y, lo.y, hi.y);
         return (v);
@@ -556,18 +563,17 @@ namespace alg {
 
     template <>
 	vec2 clampf<vec2>(vec2 a, float lo, float hi) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = alg_clamp(a.x, lo, hi);
         v.y = alg_clamp(a.y, lo, hi);
         return (v);
 	}
 
+    /* Interpolation */
 
     template <>
 	vec2 lerp<vec2>(vec2 a, vec2 b, float t) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = alg_lerp(a.x, b.x, t);
         v.y = alg_lerp(a.y, b.y, t);
         return (v);
@@ -576,8 +582,7 @@ namespace alg {
 
     template <>
 	vec2 step<vec2>(vec2 a, vec2 x) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = alg_step(a.x, x.x);
         v.y = alg_step(a.y, x.y);
         return (v);
@@ -586,18 +591,17 @@ namespace alg {
 
     template <>
 	vec2 smoothstep<vec2>(vec2 e0, vec2 e1, vec2 x) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = alg_smoothstep(e0.x, e1.x, x.x);
         v.y = alg_smoothstep(e0.y, e1.y, x.y);
         return (v);
 	}
 
+    /* Geometric operations */
 
     template <>
 	vec2 perp<vec2>(vec2 a) {
-        vec2 v;
-
+        vec2 v = alg::init<vec2>(0.0);
         v.x = -a.y;
         v.y =  a.x;
         return (v);
@@ -607,8 +611,7 @@ namespace alg {
     template <>
 	vec2 reflect<vec2>(vec2 a, vec2 n) {
         float dot = alg::dot<vec2>(a, n);
-        vec2  v;
-
+        vec2  v = alg::init<vec2>(0.0);
         v.x = a.x - 2.0f * dot * n.x;
         v.y = a.y - 2.0f * dot * n.y;
         return (v);
@@ -618,9 +621,8 @@ namespace alg {
     template <>
 	vec2 refract<vec2>(vec2 a, vec2 n, float eta) {
         float dot = alg::dot<vec2>(a, n);
-        float d   = 1.0f - eta * eta * (1.0 - dot * dot);
-
-        vec2 v = alg::init<vec2>(0.0);
+        float d = 1.0f - eta * eta * (1.0 - dot * dot);
+        vec2  v = alg::init<vec2>(0.0);
         if (d >= 0) {
             d = sqrtf(d);
             v.x = eta * a.x - (eta * dot + d) * n.x;
@@ -635,8 +637,7 @@ namespace alg {
 	vec2 rotate<vec2>(vec2 a, float f) {
         float s = sinf(f);
         float c = cosf(f);
-        vec2  v;
-
+        vec2  v = alg::init<vec2>(0.0);
         v.x = c * a.x - s * a.y;
         v.y = s * a.x + c * a.y;
         return (v);
@@ -653,5 +654,4 @@ namespace alg {
 
 };
 
-# endif /* ALGEBRA_IMPLEMENTATION */
-#endif /* _vec2_hpp_ */
+#endif /* ALGEBRA_IMPLEMENTATION */

@@ -34,16 +34,16 @@ namespace alg {
     /* vector functions */
 
     template <typename T>
-	float len(T);
+	float ln(T);
 
     template <typename T>
-	float lensq(T);
+	float lnsq(T);
 
     template <typename T>
-	float dist(T, T);
+	float dst(T, T);
 
     template <typename T>
-	float distsq(T, T);
+	float dstsq(T, T);
 
     template <typename T>
 	float dot(T, T);

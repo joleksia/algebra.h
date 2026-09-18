@@ -1,6 +1,7 @@
 #if !defined (_vec2_h_)
 # define _vec2_h_ 1
 #
+# include <stdbool.h>
 # include "./type/vec2.h"
 # include "./type/mat2.h"
 #
@@ -10,264 +11,209 @@
 
 /* Properties */
 
-ALGAPI vec2 vec2zero(void);
+ALGAPI vec2 alg_vec2(float, float);
 
-ALGAPI vec2 vec2one(void);
-
-ALGAPI vec2 vec2right(void);
-
-ALGAPI vec2 vec2left(void);
-
-ALGAPI vec2 vec2up(void);
-
-ALGAPI vec2 vec2down(void);
+ALGAPI vec2 alg_vec2init(float, float);
 
 /* Math operations */
 
-ALGAPI vec2 vec2add(vec2, vec2);
+ALGAPI vec2 alg_vec2add(vec2, vec2);
 
-ALGAPI vec2 vec2sub(vec2, vec2);
+ALGAPI vec2 alg_vec2sub(vec2, vec2);
 
-ALGAPI vec2 vec2mul(vec2, vec2);
+ALGAPI vec2 alg_vec2mul(vec2, vec2);
 
-ALGAPI vec2 vec2div(vec2, vec2);
+ALGAPI vec2 alg_vec2div(vec2, vec2);
 
-ALGAPI vec2 vec2addf(vec2, float);
+ALGAPI vec2 alg_vec2addf(vec2, float);
 
-ALGAPI vec2 vec2subf(vec2, float);
+ALGAPI vec2 alg_vec2subf(vec2, float);
 
-ALGAPI vec2 vec2mulf(vec2, float);
+ALGAPI vec2 alg_vec2mulf(vec2, float);
 
-ALGAPI vec2 vec2divf(vec2, float);
+ALGAPI vec2 alg_vec2divf(vec2, float);
 
-ALGAPI vec2 vec2mulm(vec2, mat2);
+ALGAPI vec2 alg_vec2mulm(vec2, mat2);
 
 /* Boolean expressions */
 
-ALGAPI int vec2eq(vec2, vec2);
+ALGAPI bool alg_vec2eq(vec2, vec2);
 
-ALGAPI int vec2noeq(vec2, vec2);
+ALGAPI bool alg_vec2ne(vec2, vec2);
 
-ALGAPI int vec2great(vec2, vec2);
+ALGAPI bool alg_vec2gt(vec2, vec2);
 
-ALGAPI int vec2greq(vec2, vec2);
+ALGAPI bool alg_vec2ge(vec2, vec2);
 
-ALGAPI int vec2less(vec2, vec2);
+ALGAPI bool alg_vec2lt(vec2, vec2);
 
-ALGAPI int vec2lseq(vec2, vec2);
+ALGAPI bool alg_vec2le(vec2, vec2);
 
 /* Distance Operations */
 
-ALGAPI float vec2len(vec2);
+ALGAPI float alg_vec2ln(vec2);
 
-ALGAPI float vec2lensq(vec2);
+ALGAPI float alg_vec2lnsq(vec2);
 
-ALGAPI float vec2dist(vec2, vec2);
+ALGAPI float alg_vec2dst(vec2, vec2);
 
-ALGAPI float vec2distsq(vec2, vec2);
+ALGAPI float alg_vec2dstsq(vec2, vec2);
 
 /* Unary Arithmetics */
 
-ALGAPI float vec2dot(vec2, vec2);
+ALGAPI float alg_vec2dot(vec2, vec2);
 
-ALGAPI float vec2cross(vec2, vec2);
+ALGAPI float alg_vec2cross(vec2, vec2);
 
-ALGAPI vec2 vec2norm(vec2);
+ALGAPI vec2 alg_vec2norm(vec2);
 
-ALGAPI vec2 vec2neg(vec2);
+ALGAPI vec2 alg_vec2neg(vec2);
 
-ALGAPI vec2 vec2abs(vec2);
+ALGAPI vec2 alg_vec2abs(vec2);
 
-ALGAPI vec2 vec2sign(vec2);
+ALGAPI vec2 alg_vec2sign(vec2);
 
-ALGAPI vec2 vec2sqrt(vec2);
+ALGAPI vec2 alg_vec2sqrt(vec2);
 
-ALGAPI vec2 vec2pow(vec2, float);
+ALGAPI vec2 alg_vec2pow(vec2, float);
 
-ALGAPI vec2 vec2fract(vec2);
+ALGAPI vec2 alg_vec2fract(vec2);
 
-ALGAPI vec2 vec2floor(vec2);
+ALGAPI vec2 alg_vec2floor(vec2);
 
-ALGAPI vec2 vec2ceil(vec2);
+ALGAPI vec2 alg_vec2ceil(vec2);
 
-ALGAPI vec2 vec2round(vec2);
+ALGAPI vec2 alg_vec2round(vec2);
 
-ALGAPI vec2 vec2mod(vec2, vec2);
+ALGAPI vec2 alg_vec2mod(vec2, vec2);
 
-ALGAPI vec2 vec2modf(vec2, float);
+ALGAPI vec2 alg_vec2modf(vec2, float);
 
 /* Constraints */
 
-ALGAPI vec2 vec2min(vec2, vec2);
+ALGAPI vec2 alg_vec2min(vec2, vec2);
 
-ALGAPI vec2 vec2minf(vec2, float);
+ALGAPI vec2 alg_vec2minf(vec2, float);
 
-ALGAPI vec2 vec2max(vec2, vec2);
+ALGAPI vec2 alg_vec2max(vec2, vec2);
 
-ALGAPI vec2 vec2maxf(vec2, float);
+ALGAPI vec2 alg_vec2maxf(vec2, float);
 
-ALGAPI vec2 vec2clamp(vec2, vec2, vec2);
+ALGAPI vec2 alg_vec2clamp(vec2, vec2, vec2);
 
-ALGAPI vec2 vec2clampf(vec2, float, float);
+ALGAPI vec2 alg_vec2clampf(vec2, float, float);
 
 /* Interpolation */
 
-ALGAPI vec2 vec2lerp(vec2, vec2, float);
+ALGAPI vec2 alg_vec2lerp(vec2, vec2, float);
 
-ALGAPI vec2 vec2step(vec2, vec2);
+ALGAPI vec2 alg_vec2step(vec2, vec2);
 
-ALGAPI vec2 vec2smoothstep(vec2, vec2, vec2);
+ALGAPI vec2 alg_vec2smoothstep(vec2, vec2, vec2);
 
 /* Geometric operations */
 
-ALGAPI vec2 vec2perp(vec2);
+ALGAPI vec2 alg_vec2perp(vec2);
 
-ALGAPI vec2 vec2reflect(vec2, vec2);
+ALGAPI vec2 alg_vec2reflect(vec2, vec2);
 
-ALGAPI vec2 vec2refract(vec2, vec2, float);
+ALGAPI vec2 alg_vec2refract(vec2, vec2, float);
 
-ALGAPI vec2 vec2rotate(vec2, float);
+ALGAPI vec2 alg_vec2rotate(vec2, float);
 
-ALGAPI float vec2angle(vec2, vec2);
+ALGAPI float alg_vec2angle(vec2, vec2);
 
-# if defined (ALGEBRA_IMPLEMENTATION)
+#endif /* _vec2_h_ */
 #
-#  include <math.h>
+#if defined (ALGEBRA_IMPLEMENTATION)
 #
-#  include "./utils.h"
+# include <math.h>
+# include "./utils.h"
 
 /* Properties */
 
-ALGAPI vec2 vec2zero(void) {
+ALGAPI vec2 alg_vec2(float x, float y) {
     vec2 v;
-
-    v.x = 0.0f;
-    v.y = 0.0f;
+    v.x = x;
+    v.y = y;
     return (v);
 }
 
-
-ALGAPI vec2 vec2one(void) {
+ALGAPI vec2 alg_vec2init(float x, float y) {
     vec2 v;
-
-    v.x = 1.0f;
-    v.y = 1.0f;
-    return (v);
-}
-
-
-ALGAPI vec2 vec2right(void) {
-    vec2 v;
-
-    v.x = 1.0f;
-    v.y = 0.0f;
-    return (v);
-}
-
-
-ALGAPI vec2 vec2left(void) {
-    vec2 v;
-
-    v.x = -1.0f;
-    v.y =  0.0f;
-    return (v);
-}
-
-
-ALGAPI vec2 vec2up(void) {
-    vec2 v;
-
-    v.x = 0.0f;
-    v.y = 1.0f;
-    return (v);
-}
-
-
-ALGAPI vec2 vec2down(void) {
-    vec2 v;
-
-    v.x =  0.0f;
-    v.y = -1.0f;
+    v.x = x;
+    v.y = y;
     return (v);
 }
 
 /* Math operations */
 
-ALGAPI vec2 vec2add(vec2 a, vec2 b) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2add(vec2 a, vec2 b) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = a.x + b.x;
     v.y = a.y + b.y;
     return (v);
 }
 
 
-ALGAPI vec2 vec2sub(vec2 a, vec2 b) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2sub(vec2 a, vec2 b) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = a.x - b.x;
     v.y = a.y - b.y;
     return (v);
 }
 
 
-ALGAPI vec2 vec2mul(vec2 a, vec2 b) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2mul(vec2 a, vec2 b) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = a.x * b.x;
     v.y = a.y * b.y;
     return (v);
 }
 
 
-ALGAPI vec2 vec2div(vec2 a, vec2 b) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2div(vec2 a, vec2 b) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = b.x != 0.0f ? a.x / b.x : 0.0f;
     v.y = b.y != 0.0f ? a.y / b.y : 0.0f;
     return (v);
 }
 
 
-ALGAPI vec2 vec2addf(vec2 a, float f) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2addf(vec2 a, float f) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = a.x + f;
     v.y = a.y + f;
     return (v);
 }
 
 
-ALGAPI vec2 vec2subf(vec2 a, float f) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2subf(vec2 a, float f) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = a.x - f;
     v.y = a.y - f;
     return (v);
 }
 
 
-ALGAPI vec2 vec2mulf(vec2 a, float f) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2mulf(vec2 a, float f) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = a.x * f;
     v.y = a.y * f;
     return (v);
 }
 
 
-ALGAPI vec2 vec2divf(vec2 a, float f) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2divf(vec2 a, float f) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = f != 0.0f ? a.x / f : 0.0f;
     v.y = f != 0.0f ? a.y / f : 0.0f;
     return (v);
 }
 
 
-ALGAPI vec2 vec2mulm(vec2 a, mat2 m) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2mulm(vec2 a, mat2 m) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = m.m00 * a.x + m.m10 * a.y;
     v.y = m.m01 * a.x + m.m11 * a.y;
     return (v);
@@ -275,161 +221,159 @@ ALGAPI vec2 vec2mulm(vec2 a, mat2 m) {
 
 /* Boolean expressions */
 
-ALGAPI int vec2eq(vec2 a, vec2 b) {
+ALGAPI bool alg_vec2eq(vec2 a, vec2 b) {
     return (fabsf(a.x - b.x) < 1e-6f &&
             fabsf(a.y - b.y) < 1e-6f);
 }
 
 
-ALGAPI int vec2noeq(vec2 a, vec2 b) {
-    return (!vec2eq(a, b));
+ALGAPI bool alg_vec2ne(vec2 a, vec2 b) {
+    return (fabsf(a.x - b.x) > 1e-6f ||
+            fabsf(a.y - b.y) > 1e-6f);
 }
 
 
-ALGAPI int vec2great(vec2 a, vec2 b) {
+ALGAPI bool alg_vec2gt(vec2 a, vec2 b) {
     return (a.x > b.x ||
             a.y > b.y);
 }
 
 
-ALGAPI int vec2greq(vec2 a, vec2 b) {
+ALGAPI bool alg_vec2ge(vec2 a, vec2 b) {
     return (a.x >= b.x ||
             a.y >= b.y);
 }
 
 
-ALGAPI int vec2less(vec2 a, vec2 b) {
+ALGAPI bool alg_vec2lt(vec2 a, vec2 b) {
     return (a.x < b.x ||
             a.y < b.y);
 }
 
 
-ALGAPI int vec2lseq(vec2 a, vec2 b) {
+ALGAPI bool alg_vec2le(vec2 a, vec2 b) {
     return (a.x <= b.x ||
             a.y <= b.y);
 }
 
 /* Distance Operations */
 
-ALGAPI float vec2len(vec2 a) {
+ALGAPI float alg_vec2ln(vec2 a) {
     return (sqrtf(a.x * a.x + a.y * a.y));
 }
 
 
-ALGAPI float vec2lensq(vec2 a) {
+ALGAPI float alg_vec2lnsq(vec2 a) {
     return (a.x * a.x + a.y * a.y);
 }
 
 
-ALGAPI float vec2dist(vec2 a, vec2 b) {
+ALGAPI float alg_vec2dst(vec2 a, vec2 b) {
     return (sqrtf((a.x - b.x) * (a.x - b.x) +
                   (a.y - b.y) * (a.y - b.y)));
 }
 
 
-ALGAPI float vec2distsq(vec2 a, vec2 b) {
+ALGAPI float alg_vec2dstsq(vec2 a, vec2 b) {
     return ((a.x - b.x) * (a.x - b.x) +
             (a.y - b.y) * (a.y - b.y));
 }
 
 /* Unary Arithmetics */
 
-ALGAPI float vec2dot(vec2 a, vec2 b) {
+ALGAPI float alg_vec2dot(vec2 a, vec2 b) {
     return (a.x * b.x + a.y * b.y);
 }
 
 
-ALGAPI float vec2cross(vec2 a, vec2 b) {
+ALGAPI float alg_vec2cross(vec2 a, vec2 b) {
     return (a.x * b.y - a.y * b.x);
 }
 
 
-ALGAPI vec2 vec2norm(vec2 a) {
-    float len = vec2len(a);
-
-    if (len != 0.0f) {
-        a.x *= 1.0f / len;
-        a.y *= 1.0f / len;
+ALGAPI vec2 alg_vec2norm(vec2 a) {
+    float ln = sqrtf(a.x * a.x + a.y * a.y);
+    if (ln != 0.0f) {
+        a.x *= 1.0f / ln;
+        a.y *= 1.0f / ln;
     }
     return (a);
 }
 
 
-ALGAPI vec2 vec2neg(vec2 a) {
+ALGAPI vec2 alg_vec2neg(vec2 a) {
     a.x = -a.x;
     a.y = -a.y;
     return (a);
 }
 
 
-ALGAPI vec2 vec2abs(vec2 a) {
+ALGAPI vec2 alg_vec2abs(vec2 a) {
     a.x = fabsf(a.x);
     a.y = fabsf(a.y);
     return (a);
 }
 
 
-ALGAPI vec2 vec2sign(vec2 a) {
+ALGAPI vec2 alg_vec2sign(vec2 a) {
     a.x = a.x > 0.0f ? 1.0f : (a.x < 0.0f ? -1.0f : 0.0f);
     a.y = a.y > 0.0f ? 1.0f : (a.y < 0.0f ? -1.0f : 0.0f);
     return (a);
 }
 
 
-ALGAPI vec2 vec2sqrt(vec2 a) {
+ALGAPI vec2 alg_vec2sqrt(vec2 a) {
     a.x = sqrtf(a.x);
     a.y = sqrtf(a.y);
     return (a);
 }
 
 
-ALGAPI vec2 vec2pow(vec2 a, float f) {
+ALGAPI vec2 alg_vec2pow(vec2 a, float f) {
     a.x = powf(a.x, f);
     a.y = powf(a.y, f);
     return (a);
 }
 
 
-ALGAPI vec2 vec2fract(vec2 a) {
+ALGAPI vec2 alg_vec2fract(vec2 a) {
     a.x = alg_fract(a.x);
     a.y = alg_fract(a.y);
     return (a);
 }
 
 
-ALGAPI vec2 vec2floor(vec2 a) {
+ALGAPI vec2 alg_vec2floor(vec2 a) {
     a.x = floorf(a.x);
     a.y = floorf(a.y);
     return (a);
 }
 
 
-ALGAPI vec2 vec2ceil(vec2 a) {
+ALGAPI vec2 alg_vec2ceil(vec2 a) {
     a.x = ceilf(a.x);
     a.y = ceilf(a.y);
     return (a);
 }
 
 
-ALGAPI vec2 vec2round(vec2 a) {
+ALGAPI vec2 alg_vec2round(vec2 a) {
     a.x = roundf(a.x);
     a.y = roundf(a.y);
     return (a);
 }
 
 
-ALGAPI vec2 vec2mod(vec2 a, vec2 b) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2mod(vec2 a, vec2 b) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = a.x - b.x * floorf(a.x / b.x);
     v.y = a.y - b.y * floorf(a.y / b.y);
     return (v);
 }
 
 
-ALGAPI vec2 vec2modf(vec2 a, float f) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2modf(vec2 a, float f) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = a.x - f * floorf(a.x / f);
     v.y = a.y - f * floorf(a.y / f);
     return (v);
@@ -437,54 +381,48 @@ ALGAPI vec2 vec2modf(vec2 a, float f) {
 
 /* Constraints */
 
-ALGAPI vec2 vec2min(vec2 a, vec2 b) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2min(vec2 a, vec2 b) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = alg_min(a.x, b.x);
     v.y = alg_min(a.y, b.y);
     return (v);
 }
 
 
-ALGAPI vec2 vec2minf(vec2 a, float f) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2minf(vec2 a, float f) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = alg_min(a.x, f);
     v.y = alg_min(a.y, f);
     return (v);
 }
 
 
-ALGAPI vec2 vec2max(vec2 a, vec2 b) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2max(vec2 a, vec2 b) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = alg_max(a.x, b.x);
     v.y = alg_max(a.y, b.y);
     return (v);
 }
 
 
-ALGAPI vec2 vec2maxf(vec2 a, float f) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2maxf(vec2 a, float f) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = alg_max(a.x, f);
     v.y = alg_max(a.y, f);
     return (v);
 }
 
 
-ALGAPI vec2 vec2clamp(vec2 a, vec2 lo, vec2 hi) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2clamp(vec2 a, vec2 lo, vec2 hi) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = alg_clamp(a.x, lo.x, hi.x);
     v.y = alg_clamp(a.y, lo.y, hi.y);
     return (v);
 }
 
 
-ALGAPI vec2 vec2clampf(vec2 a, float lo, float hi) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2clampf(vec2 a, float lo, float hi) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = alg_clamp(a.x, lo, hi);
     v.y = alg_clamp(a.y, lo, hi);
     return (v);
@@ -492,27 +430,24 @@ ALGAPI vec2 vec2clampf(vec2 a, float lo, float hi) {
 
 /* Interpolation */
 
-ALGAPI vec2 vec2lerp(vec2 a, vec2 b, float t) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2lerp(vec2 a, vec2 b, float t) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = alg_lerp(a.x, b.x, t);
     v.y = alg_lerp(a.y, b.y, t);
     return (v);
 }
 
 
-ALGAPI vec2 vec2step(vec2 a, vec2 x) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2step(vec2 a, vec2 x) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = alg_step(a.x, x.x);
     v.y = alg_step(a.y, x.y);
     return (v);
 }
 
 
-ALGAPI vec2 vec2smoothstep(vec2 e0, vec2 e1, vec2 x) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2smoothstep(vec2 e0, vec2 e1, vec2 x) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = alg_smoothstep(e0.x, e1.x, x.x);
     v.y = alg_smoothstep(e0.y, e1.y, x.y);
     return (v);
@@ -520,30 +455,27 @@ ALGAPI vec2 vec2smoothstep(vec2 e0, vec2 e1, vec2 x) {
 
 /* Geometric operations */
 
-ALGAPI vec2 vec2perp(vec2 a) {
-    vec2 v;
-
+ALGAPI vec2 alg_vec2perp(vec2 a) {
+    vec2 v = alg_vec2(0.0, 0.0);
     v.x = -a.y;
     v.y =  a.x;
     return (v);
 }
 
 
-ALGAPI vec2 vec2reflect(vec2 a, vec2 n) {
-    float dot = vec2dot(a, n);
-    vec2  v;
-
+ALGAPI vec2 alg_vec2reflect(vec2 a, vec2 n) {
+    float dot = a.x * n.x + a.y * n.y;
+    vec2  v = alg_vec2(0.0, 0.0);
     v.x = a.x - 2.0f * dot * n.x;
     v.y = a.y - 2.0f * dot * n.y;
     return (v);
 }
 
 
-ALGAPI vec2 vec2refract(vec2 a, vec2 n, float eta) {
-    float dot = vec2dot(a, n);
+ALGAPI vec2 alg_vec2refract(vec2 a, vec2 n, float eta) {
+    float dot = a.x * n.x + a.y * n.y;
     float d   = 1.0f - eta * eta * (1.0 - dot * dot);
-
-    vec2 v = vec2zero();
+    vec2  v = alg_vec2(0.0, 0.0);
     if (d >= 0) {
         d = sqrtf(d);
         v.x = eta * a.x - (eta * dot + d) * n.x;
@@ -554,23 +486,21 @@ ALGAPI vec2 vec2refract(vec2 a, vec2 n, float eta) {
 }
 
 
-ALGAPI vec2 vec2rotate(vec2 a, float f) {
+ALGAPI vec2 alg_vec2rotate(vec2 a, float f) {
     float s = sinf(f);
     float c = cosf(f);
-    vec2  v;
-
+    vec2  v = alg_vec2(0.0, 0.0);
     v.x = c * a.x - s * a.y;
     v.y = s * a.x + c * a.y;
     return (v);
 }
 
 
-ALGAPI float vec2angle(vec2 a, vec2 b) {
-    float dot = vec2dot(a, b);
+ALGAPI float alg_vec2angle(vec2 a, vec2 b) {
+    float dot = a.x * b.x + a.y * b.y;
     float det = a.x * b.y - a.y * b.x;
 
     return (atan2f(det, dot));
 }
 
-# endif /* ALGEBRA_IMPLEMENTATION */
-#endif /* _vec2_h_ */
+#endif /* ALGEBRA_IMPLEMENTATION */
