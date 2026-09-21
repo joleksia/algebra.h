@@ -1,9 +1,9 @@
 #if !defined (_type_vec3_hpp_)
 # define _type_vec3_hpp_ 1
 
-using vec3 = union u_vec3;
+using vec3 = union vec3_u;
 
-union u_vec3 {
+union vec3_u {
     struct {
         float x;
         float y;
