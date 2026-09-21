@@ -521,7 +521,7 @@ namespace alg {
 
     template <>
 	vec3 pow<vec3>(vec3 a, float f) {
-        vec3 = alg::init<vec3>(
+        vec3 v = alg::init<vec3>(
             powf(a.x, f),
             powf(a.y, f),
             powf(a.z, f)
