@@ -70,9 +70,6 @@ namespace alg {
     template <>
 	vec3 init<vec3>(float, float, float);
 
-    template <>
-	vec3 rotate<vec3>(vec3, float);
-
     /* Distance operations */
 
     template <>
@@ -560,169 +557,133 @@ namespace alg {
 
 
     template <>
-	vec3 round<vec3>(vec3 a) {
-        a.x = roundf(a.x);
-        a.y = roundf(a.y);
-        a.z = roundf(a.z);
-        return (a);
-	}
+    vec3 round<vec3>(vec3 a) {
+        vec3 v = alg::init<vec3>(
+            roundf(a.x),
+            roundf(a.y),
+            roundf(a.z)
+        ); return (v);
+    }
 
     /* Constraints */
 
     template <>
-	vec3 min<vec3>(vec3 a, vec3 b) {
-        vec3 v = alg::init<vec3>(0.0);
-        v.x = alg_min(a.x, b.x);
-        v.y = alg_min(a.y, b.y);
-        v.z = alg_min(a.z, b.z);
-        return (v);
-	}
+    vec3 min<vec3>(vec3 a, vec3 b) {
+        vec3 v = alg::init<vec3>(
+            alg_min(a.x, b.x),
+            alg_min(a.y, b.y),
+            alg_min(a.z, b.z)
+        ); return (v);
+    }
 
 
     template <>
-	vec3 minf<vec3>(vec3 a, float f) {
-        vec3 v = alg::init<vec3>(0.0);
-        v.x = alg_min(a.x, f);
-        v.y = alg_min(a.y, f);
-        v.z = alg_min(a.z, f);
-        return (v);
-	}
+    vec3 minf<vec3>(vec3 a, float f) {
+        vec3 v = alg::init<vec3>(
+            alg_min(a.x, f),
+            alg_min(a.y, f),
+            alg_min(a.z, f)
+        ); return (v);
+    }
 
 
     template <>
-	vec3 max<vec3>(vec3 a, vec3 b) {
-        vec3 v = alg::init<vec3>(0.0);
-        v.x = alg_max(a.x, b.x);
-        v.y = alg_max(a.y, b.y);
-        v.z = alg_max(a.z, b.z);
-        return (v);
-	}
+    vec3 max<vec3>(vec3 a, vec3 b) {
+        vec3 v = alg::init<vec3>(
+            alg_max(a.x, b.x),
+            alg_max(a.y, b.y),
+            alg_max(a.z, b.z)
+        ); return (v);
+    }
 
 
     template <>
-	vec3 maxf<vec3>(vec3 a, float f) {
-        vec3 v = alg::init<vec3>(0.0);
-        v.x = alg_max(a.x, f);
-        v.y = alg_max(a.y, f);
-        v.z = alg_max(a.z, f);
-        return (v);
-	}
+    vec3 maxf<vec3>(vec3 a, float f) {
+        vec3 v = alg::init<vec3>(
+            alg_max(a.x, f),
+            alg_max(a.y, f),
+            alg_max(a.z, f)
+        ); return (v);
+    }
 
 
     template <>
-	vec3 clamp<vec3>(vec3 a, vec3 lo, vec3 hi) {
-        vec3 v = alg::init<vec3>(0.0);
-        v.x = alg_clamp(a.x, lo.x, hi.x);
-        v.y = alg_clamp(a.y, lo.y, hi.y);
-        v.z = alg_clamp(a.z, lo.z, hi.z);
-        return (v);
-	}
+    vec3 clamp<vec3>(vec3 a, vec3 lo, vec3 hi) {
+        vec3 v = alg::init<vec3>(
+            alg_clamp(a.x, lo.x, hi.x),
+            alg_clamp(a.y, lo.y, hi.y),
+            alg_clamp(a.z, lo.z, hi.z)
+        ); return (v);
+    }
 
 
     template <>
-	vec3 clampf<vec3>(vec3 a, float lo, float hi) {
-        vec3 v = alg::init<vec3>(0.0);
-        v.x = alg_clamp(a.x, lo, hi);
-        v.y = alg_clamp(a.y, lo, hi);
-        v.z = alg_clamp(a.z, lo, hi);
-        return (v);
-	}
+    vec3 clampf<vec3>(vec3 a, float lo, float hi) {
+        vec3 v = alg::init<vec3>(
+            alg_clamp(a.x, lo, hi),
+            alg_clamp(a.y, lo, hi),
+            alg_clamp(a.z, lo, hi)
+        ); return (v);
+    }
 
     /* Interpolation */
 
     template <>
-	vec3 lerp<vec3>(vec3 a, vec3 b, float t) {
-        vec3 v = alg::init<vec3>(0.0);
-        v.x = alg_lerp(a.x, b.x, t);
-        v.y = alg_lerp(a.y, b.y, t);
-        v.z = alg_lerp(a.z, b.z, t);
-        return (v);
-	}
+    vec3 lerp<vec3>(vec3 a, vec3 b, float t) {
+        vec3 v = alg::init<vec3>(
+            alg_lerp(a.x, b.x, t),
+            alg_lerp(a.y, b.y, t),
+            alg_lerp(a.z, b.z, t)
+        ); return (v);
+    }
 
 
     template <>
-	vec3 step<vec3>(vec3 a, vec3 x) {
-        vec3 v = alg::init<vec3>(0.0);
-        v.x = alg_step(a.x, x.x);
-        v.y = alg_step(a.y, x.y);
-        v.z = alg_step(a.z, x.z);
-        return (v);
-	}
+    vec3 step<vec3>(vec3 a, vec3 x) {
+        vec3 v = alg::init<vec3>(
+            alg_step(a.x, x.x),
+            alg_step(a.y, x.y),
+            alg_step(a.z, x.z)
+        ); return (v);
+    }
 
 
     template <>
-	vec3 smoothstep<vec3>(vec3 e0, vec3 e1, vec3 x) {
-        vec3 v = alg::init<vec3>(0.0);
-        v.x = alg_smoothstep(e0.x, e1.x, x.x);
-        v.y = alg_smoothstep(e0.y, e1.y, x.y);
-        v.z = alg_smoothstep(e0.z, e1.z, x.z);
-        return (v);
-	}
+    vec3 smoothstep<vec3>(vec3 e0, vec3 e1, vec3 x) {
+        vec3 v = alg::init<vec3>(
+            alg_smoothstep(e0.x, e1.x, x.x),
+            alg_smoothstep(e0.y, e1.y, x.y),
+            alg_smoothstep(e0.z, e1.z, x.z)
+        ); return (v);
+    }
 
     /* Geometric operations */
 
     template <>
-	vec3 reflect<vec3>(vec3 a, vec3 n) {
-        float dot = alg::dot<vec3>(a, n);
-        vec3  v = alg::init<vec3>(0.0);
-        v.x = a.x - 2.0f * dot * n.x;
-        v.y = a.y - 2.0f * dot * n.y;
-        v.z = a.z - 2.0f * dot * n.z;
-        return (v);
-	}
+    vec3 reflect<vec3>(vec3 a, vec3 n) {
+        float d = alg::dot<vec3>(a, n);
+        vec3  v = alg::init<vec3>(
+            a.x - 2.0f * d * n.x,
+            a.y - 2.0f * d * n.y,
+            a.z - 2.0f * d * n.z
+        ); return (v);
+    }
 
 
     template <>
-	vec3 refract<vec3>(vec3 a, vec3 n, float eta) {
-        float dot = alg::dot<vec3>(a, n);
-        float d = 1.0f - eta * eta * (1.0 - dot * dot);
+    vec3 refract<vec3>(vec3 a, vec3 n, float eta) {
+        float d0 = alg::dot<vec3>(a, n);
+        float d1 = 1.0f - eta * eta * (1.0 - d0 * d0);
         vec3  v = alg::init<vec3>(0.0);
-        if (d >= 0) {
-            d = sqrtf(d);
-            v.x = eta * a.x - (eta * dot + d) * n.x;
-            v.y = eta * a.y - (eta * dot + d) * n.y;
-            v.z = eta * a.z - (eta * dot + d) * n.z;
+        if (d1 >= 0) {
+            d1 = sqrtf(d1);
+            v.x = eta * a.x - (eta * d0 + d1) * n.x;
+            v.y = eta * a.y - (eta * d0 + d1) * n.y;
+            v.z = eta * a.z - (eta * d0 + d1) * n.z;
         }
 
         return (v);
-	}
-
-
-    template <>
-	float angle<vec3>(vec3 a, vec3 b) {
-        vec3 cross = alg::cross<vec3>(a, b);
-        float dot = alg::dot<vec3>(a, b);
-        float ln  = alg::ln<vec3>(cross);
-        return (atan2f(ln, dot));
-	}
-
-
-    /* Euler-Rodrigues Formula:
-     *      
-     *      v' = v + 2a(w * x) + 2(w * (w * x))
-     *
-     * - https://en.wikipedia.org/w/index.php?title=Euler%E2%80%93Rodrigues_formula
-     * - https://en.wikipedia.org/w/index.php?title=Euler%E2%80%93Rodrigues_formula#Vector_formulation
-     * */
-    template <>
-	vec3 rotate<vec3>(vec3 x, vec3 axis, float angle) {
-        float a = cosf(angle / 2.0);
-
-        vec3  n = alg::norm<vec3>(axis);
-        float s = sinf(angle / 2.0);
-        float b = n.x * s;
-        float c = n.y * s;
-        float d = n.z * s;
-
-        vec3 w;
-        w.x = b, w.y = c, w.z = d;
-        
-        vec3 v;
-        v.x = x.x + 2.0 * a * (w.x * x.x) + 2.0 * (w.x * (w.x * x.x));
-        v.y = x.y + 2.0 * a * (w.y * x.y) + 2.0 * (w.y * (w.y * x.y));
-        v.z = x.z + 2.0 * a * (w.z * x.z) + 2.0 * (w.z * (w.z * x.z));
-        return (v);
-	}
+    }
 
 };
 
