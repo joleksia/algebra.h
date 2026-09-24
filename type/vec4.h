@@ -1,9 +1,9 @@
 #if !defined (_type_vec4_h_)
 # define _type_vec4_h_ 1
 
-typedef union u_vec4 vec4;
+typedef union vec4_u vec4;
 
-union u_vec4 {
+union vec4_u {
     struct {
         float x;
         float y;
