@@ -27,7 +27,7 @@ mat2 alg_mat2mulf(mat2, float);
 
 bool alg_mat2eq(mat2, mat2);
 
-bool alg_mat2noeq(mat2, mat2);
+bool alg_mat2ne(mat2, mat2);
 
 /* Unary operations */
 
@@ -123,7 +123,7 @@ bool alg_mat2eq(mat2 a, mat2 b) {
 }
 
 
-bool alg_mat2noeq(mat2 a, mat2 b) {
+bool alg_mat2ne(mat2 a, mat2 b) {
     return (!alg_mat2eq(a, b));
 }
 
