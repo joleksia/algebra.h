@@ -189,7 +189,6 @@ namespace alg {
     template <>
 	mat3 transpose<mat3>(mat3 a) {
         mat3 m = alg::init<mat3>(0.0);
-
         m.m00 = a.m00; m.m01 = a.m10; m.m02 = a.m20;
         m.m10 = a.m01; m.m11 = a.m11; m.m12 = a.m21;
         m.m20 = a.m02; m.m21 = a.m12; m.m22 = a.m22;
