@@ -1,9 +1,9 @@
 #if !defined (_type_mat2_hpp_)
 # define _type_mat2_hpp_ 1
 
-using mat2 = union u_mat2;
+using mat2 = union mat2_u;
 
-union u_mat2 {
+union mat2_u {
     struct {
         float m00, m01,
               m10, m11;
