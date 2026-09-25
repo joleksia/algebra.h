@@ -162,9 +162,10 @@ namespace alg {
    
     template <>
 	mat2 neg<mat2>(mat2 a) {
-        a.m00 = -a.m00; a.m01 = -a.m01;
-        a.m10 = -a.m10; a.m11 = -a.m11;
-        return (a);
+        mat2 m = alg::init<mat2>(0.0);
+        m.m00 = -a.m00; m.m01 = -a.m01;
+        m.m10 = -a.m10; m.m11 = -a.m11;
+        return (m);
 	}
    
 

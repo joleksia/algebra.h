@@ -67,6 +67,7 @@ mat2 alg_mat2(float s) {
     return (m);
 }
 
+
 mat2 alg_mat2init(float s) {
     mat2 m;
     m.m00 = 1.0f * s; m.m01 = 0.0f;
