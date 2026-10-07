@@ -33,6 +33,8 @@ float alg_min(float, float);
 
 float alg_max(float, float);
 
+float alg_map(float, float, float, float, float);
+
 float alg_fract(float);
 
 float alg_clamp(float, float, float);
@@ -70,6 +72,13 @@ float alg_min(float a, float b) {
 
 float alg_max(float a, float b) {
     return (a > b ? a : b);
+}
+
+
+float alg_map(float value, float min1, float max1, float min2, float max2) {
+    return (min2 + (value - min1) *
+                   (max2  - min2) /
+                   (max1  - min1) );
 }
 
 
