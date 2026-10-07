@@ -529,9 +529,9 @@ namespace alg {
     template <>
 	vec3 fract<vec3>(vec3 a) {
         vec3 v = alg::init<vec3>(
-            alg_fract(a.x),
-            alg_fract(a.y),
-            alg_fract(a.z)
+            fract(a.x),
+            fract(a.y),
+            fract(a.z)
         ); return (v);
 	}
 
@@ -570,9 +570,9 @@ namespace alg {
     template <>
     vec3 min<vec3>(vec3 a, vec3 b) {
         vec3 v = alg::init<vec3>(
-            alg_min(a.x, b.x),
-            alg_min(a.y, b.y),
-            alg_min(a.z, b.z)
+            min(a.x, b.x),
+            min(a.y, b.y),
+            min(a.z, b.z)
         ); return (v);
     }
 
@@ -580,9 +580,9 @@ namespace alg {
     template <>
     vec3 minf<vec3>(vec3 a, float f) {
         vec3 v = alg::init<vec3>(
-            alg_min(a.x, f),
-            alg_min(a.y, f),
-            alg_min(a.z, f)
+            min(a.x, f),
+            min(a.y, f),
+            min(a.z, f)
         ); return (v);
     }
 
@@ -590,9 +590,9 @@ namespace alg {
     template <>
     vec3 max<vec3>(vec3 a, vec3 b) {
         vec3 v = alg::init<vec3>(
-            alg_max(a.x, b.x),
-            alg_max(a.y, b.y),
-            alg_max(a.z, b.z)
+            max(a.x, b.x),
+            max(a.y, b.y),
+            max(a.z, b.z)
         ); return (v);
     }
 
@@ -600,9 +600,9 @@ namespace alg {
     template <>
     vec3 maxf<vec3>(vec3 a, float f) {
         vec3 v = alg::init<vec3>(
-            alg_max(a.x, f),
-            alg_max(a.y, f),
-            alg_max(a.z, f)
+            max(a.x, f),
+            max(a.y, f),
+            max(a.z, f)
         ); return (v);
     }
 
@@ -610,9 +610,9 @@ namespace alg {
     template <>
     vec3 clamp<vec3>(vec3 a, vec3 lo, vec3 hi) {
         vec3 v = alg::init<vec3>(
-            alg_clamp(a.x, lo.x, hi.x),
-            alg_clamp(a.y, lo.y, hi.y),
-            alg_clamp(a.z, lo.z, hi.z)
+            clamp(a.x, lo.x, hi.x),
+            clamp(a.y, lo.y, hi.y),
+            clamp(a.z, lo.z, hi.z)
         ); return (v);
     }
 
@@ -620,9 +620,9 @@ namespace alg {
     template <>
     vec3 clampf<vec3>(vec3 a, float lo, float hi) {
         vec3 v = alg::init<vec3>(
-            alg_clamp(a.x, lo, hi),
-            alg_clamp(a.y, lo, hi),
-            alg_clamp(a.z, lo, hi)
+            clamp(a.x, lo, hi),
+            clamp(a.y, lo, hi),
+            clamp(a.z, lo, hi)
         ); return (v);
     }
 
@@ -631,9 +631,9 @@ namespace alg {
     template <>
     vec3 lerp<vec3>(vec3 a, vec3 b, float t) {
         vec3 v = alg::init<vec3>(
-            alg_lerp(a.x, b.x, t),
-            alg_lerp(a.y, b.y, t),
-            alg_lerp(a.z, b.z, t)
+            lerp(a.x, b.x, t),
+            lerp(a.y, b.y, t),
+            lerp(a.z, b.z, t)
         ); return (v);
     }
 
@@ -641,9 +641,9 @@ namespace alg {
     template <>
     vec3 step<vec3>(vec3 a, vec3 x) {
         vec3 v = alg::init<vec3>(
-            alg_step(a.x, x.x),
-            alg_step(a.y, x.y),
-            alg_step(a.z, x.z)
+            step(a.x, x.x),
+            step(a.y, x.y),
+            step(a.z, x.z)
         ); return (v);
     }
 
@@ -651,9 +651,9 @@ namespace alg {
     template <>
     vec3 smoothstep<vec3>(vec3 e0, vec3 e1, vec3 x) {
         vec3 v = alg::init<vec3>(
-            alg_smoothstep(e0.x, e1.x, x.x),
-            alg_smoothstep(e0.y, e1.y, x.y),
-            alg_smoothstep(e0.z, e1.z, x.z)
+            smoothstep(e0.x, e1.x, x.x),
+            smoothstep(e0.y, e1.y, x.y),
+            smoothstep(e0.z, e1.z, x.z)
         ); return (v);
     }
 

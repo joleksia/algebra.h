@@ -571,10 +571,10 @@ namespace alg {
     template <>
     vec4 fract<vec4>(vec4 a) {
         vec4 v = alg::init<vec4>(
-            alg_fract(a.x),
-            alg_fract(a.y),
-            alg_fract(a.z),
-            alg_fract(a.w)
+            fract(a.x),
+            fract(a.y),
+            fract(a.z),
+            fract(a.w)
         ); return (v);
     }
 
@@ -616,10 +616,10 @@ namespace alg {
     template <>
     vec4 min<vec4>(vec4 a, vec4 b) {
         vec4 v = alg::init<vec4>(
-            alg_min(a.x, b.x),
-            alg_min(a.y, b.y),
-            alg_min(a.z, b.z),
-            alg_min(a.w, b.w)
+            min(a.x, b.x),
+            min(a.y, b.y),
+            min(a.z, b.z),
+            min(a.w, b.w)
         ); return (v);
     }
 
@@ -627,10 +627,10 @@ namespace alg {
     template <>
     vec4 minf<vec4>(vec4 a, float f) {
         vec4 v = alg::init<vec4>(
-            alg_min(a.x, f),
-            alg_min(a.y, f),
-            alg_min(a.z, f),
-            alg_min(a.w, f)
+            min(a.x, f),
+            min(a.y, f),
+            min(a.z, f),
+            min(a.w, f)
         ); return (v);
     }
 
@@ -638,10 +638,10 @@ namespace alg {
     template <>
     vec4 max<vec4>(vec4 a, vec4 b) {
         vec4 v = alg::init<vec4>(
-            alg_max(a.x, b.x),
-            alg_max(a.y, b.y),
-            alg_max(a.z, b.z),
-            alg_max(a.w, b.w)
+            max(a.x, b.x),
+            max(a.y, b.y),
+            max(a.z, b.z),
+            max(a.w, b.w)
         ); return (v);
     }
 
@@ -649,10 +649,10 @@ namespace alg {
     template <>
     vec4 maxf<vec4>(vec4 a, float f) {
         vec4 v = alg::init<vec4>(
-            alg_max(a.x, f),
-            alg_max(a.y, f),
-            alg_max(a.z, f),
-            alg_max(a.w, f)
+            max(a.x, f),
+            max(a.y, f),
+            max(a.z, f),
+            max(a.w, f)
         ); return (v);
     }
 
@@ -660,10 +660,10 @@ namespace alg {
     template <>
     vec4 clamp<vec4>(vec4 a, vec4 lo, vec4 hi) {
         vec4 v = alg::init<vec4>(
-            alg_clamp(a.x, lo.x, hi.x),
-            alg_clamp(a.y, lo.y, hi.y),
-            alg_clamp(a.z, lo.z, hi.z),
-            alg_clamp(a.w, lo.w, hi.w)
+            clamp(a.x, lo.x, hi.x),
+            clamp(a.y, lo.y, hi.y),
+            clamp(a.z, lo.z, hi.z),
+            clamp(a.w, lo.w, hi.w)
         ); return (v);
     }
 
@@ -671,10 +671,10 @@ namespace alg {
     template <>
     vec4 clampf<vec4>(vec4 a, float lo, float hi) {
         vec4 v = alg::init<vec4>(
-            alg_clamp(a.x, lo, hi),
-            alg_clamp(a.y, lo, hi),
-            alg_clamp(a.z, lo, hi),
-            alg_clamp(a.w, lo, hi)
+            clamp(a.x, lo, hi),
+            clamp(a.y, lo, hi),
+            clamp(a.z, lo, hi),
+            clamp(a.w, lo, hi)
         ); return (v);
     }
 
@@ -683,10 +683,10 @@ namespace alg {
     template <>
     vec4 lerp<vec4>(vec4 a, vec4 b, float t) {
         vec4 v = alg::init<vec4>(
-            alg_lerp(a.x, b.x, t),
-            alg_lerp(a.y, b.y, t),
-            alg_lerp(a.z, b.z, t),
-            alg_lerp(a.w, b.w, t)
+            lerp(a.x, b.x, t),
+            lerp(a.y, b.y, t),
+            lerp(a.z, b.z, t),
+            lerp(a.w, b.w, t)
         ); return (v);
     }
 
@@ -694,10 +694,10 @@ namespace alg {
     template <>
     vec4 step<vec4>(vec4 a, vec4 x) {
         vec4 v = alg::init<vec4>(
-            alg_step(a.x, x.x),
-            alg_step(a.y, x.y),
-            alg_step(a.z, x.z),
-            alg_step(a.w, x.w)
+            step(a.x, x.x),
+            step(a.y, x.y),
+            step(a.z, x.z),
+            step(a.w, x.w)
         ); return (v);
     }
 
@@ -705,10 +705,10 @@ namespace alg {
     template <>
     vec4 smoothstep<vec4>(vec4 e0, vec4 e1, vec4 x) {
         vec4 v = alg::init<vec4>(
-            alg_smoothstep(e0.x, e1.x, x.x),
-            alg_smoothstep(e0.y, e1.y, x.y),
-            alg_smoothstep(e0.z, e1.z, x.z),
-            alg_smoothstep(e0.w, e1.w, x.w)
+            smoothstep(e0.x, e1.x, x.x),
+            smoothstep(e0.y, e1.y, x.y),
+            smoothstep(e0.z, e1.z, x.z),
+            smoothstep(e0.w, e1.w, x.w)
         ); return (v);
     }
 
