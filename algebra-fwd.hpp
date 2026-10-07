@@ -50,6 +50,9 @@ namespace alg {
 
     template <typename T, typename U>
 	T cross(U, U);
+    
+    template <typename T>
+	float det(T, T);
 
     template <typename T>
 	T norm(T);
