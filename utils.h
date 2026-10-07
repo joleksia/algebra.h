@@ -44,8 +44,12 @@ float alg_saturate(float);
 float alg_step(float, float);
 
 float alg_smoothstep(float, float, float);
-
-# if defined (ALGEBRA_IMPLEMENTATION)
+ 
+#endif /* _utils_h_ */
+#
+#if defined (ALGEBRA_IMPLEMENTATION)
+# if !defined (_utils_impl_h_)
+#  define _utils_impl_h_ 1
 #
 #  include <math.h>
 
@@ -99,5 +103,5 @@ float alg_smoothstep(float e0, float e1, float x) {
     return (t * t * (3.0 - (2.0 * t)));
 }
 
-# endif /* ALGEBRA_IMPLEMENTATION */
-#endif /* _utils_h_ */
+# endif /* _utils_impl_h_ */
+#endif /* ALGEBRA_IMPLEMENTATION */
