@@ -89,13 +89,13 @@ namespace alg {
     template <>
 	float dstsq<vec2>(vec2, vec2);
 
-    template <>
-	float dot<vec2>(vec2, vec2);
-
     /* Unary Arithmetics */
 
     template <>
-	float cross(vec2, vec2);
+	float dot<vec2>(vec2, vec2);
+
+    template <>
+	float det(vec2, vec2);
 
     template <>
 	vec2 norm<vec2>(vec2);
@@ -429,7 +429,7 @@ namespace alg {
 
 
     template <>
-	float cross(vec2 a, vec2 b) {
+	float det(vec2 a, vec2 b) {
         return (a.x * b.y - a.y * b.x);
 	}
 
@@ -654,7 +654,7 @@ namespace alg {
     template <>
 	float angle<vec2>(vec2 a, vec2 b) {
         float dot = alg::dot<vec2>(a, b);
-        float det = a.x * b.y - a.y * b.x;
+        float det = alg::det<vec2>(a, b);
         return (atan2f(det, dot));
 	}
 

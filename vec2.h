@@ -59,7 +59,7 @@ float alg_vec2dstsq(vec2, vec2);
 
 float alg_vec2dot(vec2, vec2);
 
-float alg_vec2cross(vec2, vec2);
+float alg_vec2det(vec2, vec2);
 
 vec2 alg_vec2norm(vec2);
 
@@ -284,7 +284,7 @@ float alg_vec2dot(vec2 a, vec2 b) {
 }
 
 
-float alg_vec2cross(vec2 a, vec2 b) {
+float alg_vec2det(vec2 a, vec2 b) {
     return (a.x * b.y - a.y * b.x);
 }
 
@@ -500,8 +500,8 @@ vec2 alg_vec2rotate(vec2 a, float f) {
 
 
 float alg_vec2angle(vec2 a, vec2 b) {
-    float dot = a.x * b.x + a.y * b.y;
-    float det = a.x * b.y - a.y * b.x;
+    float dot = alg_vec2dot(a, b); 
+    float det = alg_vec2det(a, b);
     return (atan2f(det, dot));
 }
 
