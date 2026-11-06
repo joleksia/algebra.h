@@ -3,18 +3,11 @@
 
 namespace alg {
 
-    using vec2 = union u_vec2;
+    using vec2 = struct vec2;
 
-    union u_vec2 {
-        struct {
-            float x;
-            float y;
-        };
-
-        struct {
-            float w;
-            float h;
-        };
+    struct vec2 {
+        float x;
+        float y;
     };
 
 };
