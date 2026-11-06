@@ -361,9 +361,9 @@ mat4 alg_mat4ortho(float l, float r, float d, float t, float n, float f) {
     m.m00 =  2.0f / (r - l);
     m.m11 =  2.0f / (t - d);
     m.m22 = -2.0f / (f - n);
-    m.m03 = -(l + r) / (r - l);
-    m.m13 = -(t + d) / (t - d);
-    m.m23 = -(f + n) / (f - n);
+    m.m30 = -(l + r) / (r - l);
+    m.m31 = -(t + d) / (t - d);
+    m.m32 = -(f + n) / (f - n);
     m.m33 =  1.0f;
     return (m);
 }
