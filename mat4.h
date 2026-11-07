@@ -315,10 +315,13 @@ mat4 alg_mat4lookat(vec3 eye, vec3 center, vec3 up) {
     vec3 u = alg_vec3cross(s, f);
     
     mat4 m = alg_mat4(1.0);
-    m.m00 =  s.x; m.m01 =  u.x; m.m02 = -f.x; m.m03 = -alg_vec3dot(s, eye);
-    m.m10 =  s.y; m.m11 =  u.y; m.m12 = -f.y; m.m13 = -alg_vec3dot(u, eye);
-    m.m20 =  s.z; m.m21 =  u.z; m.m22 = -f.z; m.m23 =  alg_vec3dot(f, eye);
-    m.m30 = 0.0f; m.m31 = 0.0f; m.m32 = 0.0f; m.m33 = 1.0f;
+    m.m00 = s.x; m.m01 = u.x; m.m02 = -f.x; m.m03 = 0.0f;
+    m.m10 = s.y; m.m11 = u.y; m.m12 = -f.y; m.m13 = 0.0f;
+    m.m20 = s.z; m.m21 = u.z; m.m22 = -f.z; m.m23 = 0.0f;
+    m.m30 = -alg_vec3dot(s, eye);
+    m.m31 = -alg_vec3dot(u, eye);
+    m.m32 =  alg_vec3dot(f, eye);
+    m.m33 = 1.0f;
     return (m);
 }
 
